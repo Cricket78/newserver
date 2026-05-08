@@ -404,7 +404,7 @@ async function loadNews(topic) {
   let articles = [];
   try {
     const params = new URLSearchParams({q: topic.query, count: newsCount, lang: 'en'});
-    const res  = await fetch(`http://localhost:8080/api/search?${params}`);
+    const res  = await fetch(`http://api/search?${params}`);
     const data = await res.json();
     if (data.error) { showError(data.error); return; }
     articles = data.articles || [];
